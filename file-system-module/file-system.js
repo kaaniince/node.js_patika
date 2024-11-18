@@ -2,7 +2,7 @@ const fs = require("fs"); //const fs = require('fs').promises; ile promise taban
 //async await ile de yapılabilir.
 
 const createEmployee = () => {
-  const employee = { name: "Employee 1 Name", salary: 2000 };
+  const employee = { name: "Kaan", salary: 2000 };
 
   fs.writeFile("employees.json", JSON.stringify(employee), "utf8", (err) => {
     if (err) {
@@ -25,7 +25,7 @@ const readEmployee = () => {
 };
 
 const updateEmployee = () => {
-  const updatedEmployee = { name: "Updated Employee Name", salary: 3000 };
+  const updatedEmployee = { name: "Daniel", salary: 3000 };
 
   fs.writeFile(
     "employees.json",
