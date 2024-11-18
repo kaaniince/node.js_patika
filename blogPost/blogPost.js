@@ -17,7 +17,7 @@ let blogPosts = [
   },
 ];
 
-const getPosts = () => {
+const getPosts = (callback) => {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
@@ -30,6 +30,7 @@ const getPosts = () => {
           console.log("------------------------\n");
         });
         resolve(blogPosts);
+        if (callback) callback(blogPosts);
       }, 1000);
     } catch (error) {
       reject("❌ Blog yazıları getirilirken hata oluştu: " + error);
@@ -37,7 +38,7 @@ const getPosts = () => {
   });
 };
 
-const createPost = (post) => {
+const createPost = (post, callback) => {
   return new Promise((resolve, reject) => {
     try {
       setTimeout(() => {
@@ -55,6 +56,7 @@ const createPost = (post) => {
 
         blogPosts.push(newPost);
         resolve(newPost);
+        if (callback) callback(newPost);
       }, 1000);
     } catch (error) {
       reject("❌ Yeni yazı eklenirken hata oluştu: " + error);
@@ -65,7 +67,9 @@ const createPost = (post) => {
 async function manageBlog() {
   try {
     console.log("📡 Mevcut blog yazıları getiriliyor...");
-    await getPosts();
+    await getPosts((posts) => {
+      console.log("🔍 Toplam yazı sayısı:", posts.length);
+    });
 
     const yeniPost = {
       title: "🔄 Async/Await ile Modern JavaScript",
@@ -75,11 +79,15 @@ async function manageBlog() {
     };
 
     console.log("\n✨ Yeni yazı ekleniyor...");
-    await createPost(yeniPost);
+    await createPost(yeniPost, (newPost) => {
+      console.log(`📢 Yeni yazı eklendi: ${newPost.title}`);
+    });
     console.log("✅ Yeni yazı başarıyla eklendi!");
 
     console.log("\n📋 Güncel blog yazıları:");
-    await getPosts();
+    await getPosts((posts) => {
+      console.log("🔍 Güncel toplam yazı sayısı:", posts.length);
+    });
   } catch (error) {
     console.error("❌ Hata:", error);
   }
