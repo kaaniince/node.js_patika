@@ -1,4 +1,5 @@
-const fs = require("fs");
+const fs = require("fs"); //const fs = require('fs').promises; ile promise tabanlı fs modülünü kullanabiliriz.
+//async await ile de yapılabilir.
 
 const createEmployee = () => {
   const employee = { name: "Employee 1 Name", salary: 2000 };
