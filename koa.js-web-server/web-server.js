@@ -4,7 +4,7 @@ const app = new Koa();
 // Home page
 app.use(async (ctx, next) => {
   if (ctx.path === "/") {
-    ctx.body = "<h1>Welcome to the Index page</h1>";
+    ctx.body = "<h1>Index sayfasına hoş geldiniz</h1>";
   } else {
     await next();
   }
@@ -13,7 +13,7 @@ app.use(async (ctx, next) => {
 // About Me page
 app.use(async (ctx, next) => {
   if (ctx.path === "/hakkimda") {
-    ctx.body = "<h1>Welcome to the About Me page</h1>";
+    ctx.body = "<h1>Hakkımda sayfasına hoş geldiniz</h1>";
   } else {
     await next();
   }
@@ -22,7 +22,7 @@ app.use(async (ctx, next) => {
 // Contact page
 app.use(async (ctx, next) => {
   if (ctx.path === "/iletisim") {
-    ctx.body = "<h1>Welcome to the Contact page</h1>";
+    ctx.body = "<h1>İletişim sayfasına hoş geldiniz</h1>";
   } else {
     await next();
   }
