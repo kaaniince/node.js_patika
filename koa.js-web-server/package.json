@@ -1,0 +1,14 @@
+{
+  "name": "koa.js-web-server",
+  "version": "1.0.0",
+  "main": "web-server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kaan Ince",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "koa": "^2.15.3"
+  }
+}
